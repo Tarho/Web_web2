@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body onload="loadData()">
+    <ul></ul>
+  </body>
+
+  <script>
+    function loadData() {
+      const fruitList = ["apple", "banana", "tomato"];
+      const ulElement = document.querySelector("ul");
+
+      fruitList.forEach((fruit) => {
+        const itemElement = document.createElement("li");
+        itemElement.textContent = fruit;
+        ulElement.appendChild(itemElement);
+      });
+    }
+  </script>
+</html>

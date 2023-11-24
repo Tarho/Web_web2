@@ -1,0 +1,65 @@
+.open-popup {
+  justify-content: center;
+  display: flex;
+  background: darkcyan;
+  color: white;
+  height: 50px;
+  width: 150px;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid white;
+}
+
+.form-popup {
+  display: none;
+  margin-top: 1%;
+}
+
+h1 .word {
+  width: 213px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.cancel {
+  justify-content: center;
+  display: flex;
+  background: red;
+  color: white;
+  height: 50px;
+  width: 150px;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid white;
+}
+
+button.subm {
+  justify-content: center;
+  display: flex;
+  background: yellow;
+  color: white;
+  height: 50px;
+  width: 150px;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid white;
+  margin-right: 100px;
+}
+
+.id-1 {
+  display: flex;
+  align-items: center;
+}
+
+.button-whole {
+  display: flex;
+  padding-left: 0%;
+  width: 750px;
+}
+
+.form-container {
+  display: flex;
+}

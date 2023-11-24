@@ -1,0 +1,98 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculate Age</title>
+</head>
+<body>
+  <div class="calculate-age">
+    <form class="form" id="form">
+      <h1>Current Year</h1>
+      <input type="text" name="Current Year" id="cyear" />
+      <h1>Year of birth</h1>
+      <input type="text" name="Year of birth" id="byear" />
+    </form>
+    <button type="button" onclick="CalculateAge()">Calculate</button>
+  </div>
+
+  <script>
+    function parseDate(input) {
+      // Try different date formats
+      const formats = ["YYYY/MM/DD", "YYYY-DD-MM", "DD/MM/YYYY"];
+      for (const format of formats) {
+        const parts = input.split(/\D+/);
+        const year = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1; // Month is zero-based
+        const day = parseInt(parts[2], 10);
+
+        const parsedDate = new Date(year, month, day);
+        if (!isNaN(parsedDate)) {
+          return parsedDate;
+        }
+      }
+      return NaN; // If none of the formats match
+    }
+
+    function CalculateAge() {
+      var current_input = document.getElementById("cyear").value;
+      var past_input = document.getElementById("byear").value;
+
+      var current = parseDate(current_input);
+      var past = parseDate(past_input);
+
+      if (isNaN(current) || isNaN(past)) {
+        alert(
+          "Invalid date format. Please use YYYY/MM/DD, YYYY-DD-MM, or DD/MM/YYYY."
+        );
+        return;
+      }
+
+      var current_day = current.getDate();
+      var current_month = current.getMonth();
+      var current_year = current.getFullYear();
+
+      var past_day = past.getDate();
+      var past_month = past.getMonth();
+      var past_year = past.getFullYear();
+
+      if (current_year - past_year < 0) {
+        alert("Invalid year");
+        if (current_month - past_month < 0) {
+          alert("Invalid month");
+        }
+      } else if (current_year - past_year == 0) {
+        if (current_month - past_month < 0) {
+          alert("Invalid month");
+        } else if (current_month - past_month == 0) {
+          alert("You are: 0 old \t Month: 0");
+        } else if (current_month - past_month > 0) {
+          alert("You are: 0 old" + "\t Month: " + (current_month - past_month));
+        }
+      } else if (current_year - past_year > 0) {
+        if (current_month - past_month < 0) {
+          alert(
+            "You are: " +
+              (current_year - past_year - 1) +
+              " old " +
+              " \t Month: " +
+              past_month
+          );
+        } else if (current_month - past_month == 0) {
+          alert(
+            "You are: " +
+              (current_year - past_year) +
+              " old " +
+              "Month: " +
+              (current_month - past_month)
+          );
+        } else if (current_month - past_month > 0) {
+          alert(
+            "You are: " +
+              (current_year - past_year) +
+              " old " +
+              "\t Month: " +
+              (current_month - past_month)
+          );
+        }
+      }
+    }
+  </script>
+</body>

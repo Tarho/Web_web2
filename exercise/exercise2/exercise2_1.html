@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 2 - 1</title>
+    <link rel="stylesheet" href="exercise2_1.css" />
+  </head>
+
+  <body>
+    <button class="open-popup" onclick="openForm()">Submit Form</button>
+
+    <div class="form-popup" id="myForm">
+      <form class="form-container" id="myFormId">
+        <div class="left">
+          <div class="id-1">
+            <h1 class="word">Name:</h1>
+            <input type="text" id="username" required />
+          </div>
+          <div class="id-1">
+            <h1 class="word">Student ID:</h1>
+            <input type="text" id="userid" required />
+          </div>
+          <div class="button-whole">
+            <button class="subm" id="btn1" onclick="takeValue(event)">
+              Submit
+            </button>
+            <button type="button" class="btn cancel" onclick="closeForm()">
+              Close Submit
+            </button>
+          </div>
+        </div>
+        <div class="right">
+          <h1>User Information</h1>
+          <p id="output1" style="font-size: 20px">Name:</p>
+          <p id="output2" style="font-size: 20px">ID:</p>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+
+      function takeValue(event) {
+        event.preventDefault();
+        const name = document.getElementById("username").value;
+        const id = document.getElementById("userid").value;
+        const out1 = document.getElementById("output1");
+        const out2 = document.getElementById("output2");
+        out1.innerHTML = "Name: " + name;
+        out2.innerHTML = "ID: " + id;
+      }
+    </script>
+  </body>
+</html>

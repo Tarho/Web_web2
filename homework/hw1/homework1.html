@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="homework1.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="nav">
+          <div class="toggle"></div>
+          <ul>
+            <li class="list active selectedLink" name="home">
+              <a href="#" style="--clr: #f44336">
+                <span class="icon">
+                  <ion-icon name="home-outline"></ion-icon></span
+                ><span class="text">Home</span></a
+              >
+            </li>
+            <li class="list" name="project">
+              <a href="#" style="--clr: #ffa117">
+                <span class="icon">
+                  <ion-icon name="document-outline"></ion-icon></span
+                ><span class="text">Project</span></a
+              >
+            </li>
+            <li class="list" name="experiences">
+              <a href="#" style="--clr: #0fc70f" class="moresize">
+                <span class="icon"
+                  ><ion-icon
+                    name="information-circle-outline"
+                  ></ion-icon> </span
+                ><span class="text">Experiences</span></a
+              >
+            </li>
+            <li class="list" name="photos">
+              <a href="#" style="--clr: #2196f3">
+                <span class="icon"
+                  ><ion-icon name="image-outline"></ion-icon> </span
+                ><span class="text">Photos</span></a
+              >
+            </li>
+            <li class="list" name="setting">
+              <a href="#" style="--clr: #b145e9">
+                <span class="icon"
+                  ><ion-icon name="settings-outline"></ion-icon> </span
+                ><span class="text">Setting</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <main>
+        <div class="card active home">
+          <div class="title">
+            <h1>Homepage</h1>
+          </div>
+          <div class="content">Welcome our homepage</div>
+        </div>
+        <div class="card project">
+          <div class="title"><h1>Project</h1></div>
+          <div class="content">Content goes here</div>
+        </div>
+        <div class="card experiences">
+          <div class="title"><h1>Experiences</h1></div>
+          <div class="content">Content goes here</div>
+        </div>
+        <div class="card photos">
+          <div class="title"><h1>Photos</h1></div>
+          <div class="content">Content goes here</div>
+        </div>
+        <div class="card setting">
+          <div class="title"><h1>Setting</h1></div>
+          <div class="content">Content goes here</div>
+        </div>
+      </main>
+    </div>
+    <script>
+      let list = document.querySelectorAll(".list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+
+      const links = document.querySelectorAll(".nav > ul > li");
+      const cards = document.querySelectorAll(".card");
+
+      [...links].map((link, index) => {
+        link.addEventListener("click", () => onclick(link, index), false);
+      });
+
+      const onclick = (link, currentindex) => {
+        const selectedItem = link.getAttribute("name");
+        cards.forEach((card) => {
+          card.classList.remove("active");
+        });
+
+        const currentCard = document.querySelector(`.card.${selectedItem}`);
+        if (currentCard) {
+          currentCard.classList.add("active");
+          highlight(currentindex);
+        }
+      };
+
+      const highlight = (currentindex) => {
+        links.forEach((link) => {
+          link.classList.remove("selectedLink");
+        });
+        links[currentindex].classList.add("selectedLink");
+      };
+    </script>
+  </body>
+</html>

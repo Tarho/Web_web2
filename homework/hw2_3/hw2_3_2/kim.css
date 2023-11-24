@@ -1,0 +1,22 @@
+body {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWhAY8qTpgnF_M6PRliCt8oxQ9bBrApFvfaQ&usqp=CAU");
+}
+
+#container {
+  min-height: 800px;
+  position: relative;
+}
+
+#clock {
+  text-align: center;
+  font-size: 72px;
+  background-color: #333333;
+  color: #fff;
+  min-width: 380px;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
